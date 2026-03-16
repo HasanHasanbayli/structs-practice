@@ -6,10 +6,12 @@ import (
 	"os"
 	"strings"
 	"structs-practice/note"
+	"structs-practice/todo"
 )
 
 func main() {
 
+	todoText := getUserInput("Todo text: ")
 	title, content := getNotData()
 
 	userNote, err := note.New(title, content)
@@ -18,6 +20,20 @@ func main() {
 		fmt.Println(err)
 		return
 	}
+
+	userTodo, err := todo.New(todoText)
+
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	userTodo.Display()
+	err = userTodo.Save()
+	if err != nil {
+		fmt.Println("Saving todo failed: ", err)
+	}
+	fmt.Println("Saving the todo successfully")
 
 	userNote.Display()
 	err = userNote.Save()
