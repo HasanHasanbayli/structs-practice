@@ -20,7 +20,15 @@ func main() {
 	}
 
 	userNote.Display()
+	err = userNote.Save()
+
+	if err != nil {
+		fmt.Println("Saving note failed: ", err)
+	}
+
+	fmt.Println("Saving the note successfully")
 }
+
 func getNotData() (string, string) {
 	title := getUserInput("Note title: ")
 
