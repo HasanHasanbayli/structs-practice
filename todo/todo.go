@@ -10,6 +10,7 @@ import (
 func (todo Todo) Display() {
 	fmt.Println("Your todo is: ", todo.Text)
 }
+
 func (todo Todo) Save() error {
 	fileName := "todo.json"
 
