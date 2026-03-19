@@ -92,3 +92,42 @@ func getUserInput(prompt string) string {
 
 	return text
 }
+
+func printSomething(value interface{}) {
+	intVal, ok := (value).(int)
+
+	if ok {
+		fmt.Println("Integer value: ", intVal)
+		return
+	}
+	floatVal, ok := (value).(float64)
+
+	if ok {
+		fmt.Println("Float value: ", floatVal)
+		return
+	}
+
+	stringVal, ok := (value).(string)
+
+	if ok {
+		fmt.Println("String value: ", stringVal)
+		return
+	}
+
+	//switch value.(type) {
+	//case string:
+	//	fmt.Println("string", value)
+	//case int:
+	//	fmt.Println("int", value)
+	//case []string:
+	//	fmt.Println("slice of string", value)
+	//case float32:
+	//	fmt.Println("float32", value)
+	//case float64:
+	//	fmt.Println("float64", value)
+	//default:
+	//	fmt.Println("unknown")
+	//}
+
+	fmt.Printf("%v ", value)
+}
